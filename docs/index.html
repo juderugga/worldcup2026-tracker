@@ -5,58 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FIFA World Cup 2026 — Fixture Tracker</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0e0d24;
-  --surface: #141232;
-  --surface2: #1a1741;
-  --surface3: #201d51;
-  --border: #262260;
-  --border2: #1a1741;
+  --bg: #16202e;
+  --surface: #1f2c3d;
+  --surface2: #263548;
+  --surface3: #2d3f55;
+  --border: #35495f;
+  --border2: #263548;
   --text: #ffffff;
-  --text2: #b5b4c9;
-  --text3: #8a88a9;
-  --gold: #e8a13a;
-  --gold2: #c9861f;
+  --text2: #a9b6c5;
+  --text3: #7d8ea1;
+  --gold: #4ba3e8;
+  --gold2: #2f8fe0;
   --green: #1f9d63;
   --red: #ee4046;
-  --blue: #b5b4c9;
-  --accent: #ee4046;
+  --blue: #a9b6c5;
+  --accent: #4ba3e8;
   --live: #ee4046;
   --win-bg: rgba(31,157,99,0.12);
-  --draw-bg: rgba(232,161,58,0.10);
+  --draw-bg: rgba(240,180,80,0.12);
   --loss-bg: rgba(238,64,70,0.10);
   --radius: 10px;
   --radius-sm: 6px;
 }
 /* ── LIGHT THEME ── */
 html.light {
-  --bg: #f7f7f9;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface2: #eeeef2;
-  --surface3: #dcdce4;
-  --border: #dcdce4;
-  --border2: #eeeef2;
-  --text: #262260;
+  --surface2: #f0f6fc;
+  --surface3: #dfe6ee;
+  --border: #dfe6ee;
+  --border2: #f0f6fc;
+  --text: #1f2c3d;
   --text2: #3a3a48;
   --text3: #6e6e84;
-  --gold: #a22c30;
-  --gold2: #a2701d;
+  --gold: #096ad0;
+  --gold2: #0857ab;
   --green: #1f9d63;
   --red: #c8363b;
-  --blue: #262260;
-  --accent: #c8363b;
+  --blue: #096ad0;
+  --accent: #096ad0;
   --live: #c8363b;
   --win-bg: rgba(31,157,99,0.10);
-  --draw-bg: rgba(232,161,58,0.15);
+  --draw-bg: rgba(240,180,80,0.16);
   --loss-bg: rgba(200,54,59,0.10);
 }
 /* Header stays dark/navy in light mode — keeps the premium feel */
 html.light .site-header {
-  background: linear-gradient(135deg, #201d51 0%, #262260 60%, #7c2124 100%);
+  background: #1f2c3d;
 }
 html.light .brand-text h1 {
-  background: linear-gradient(90deg, #e8a13a, #dcdce6 60%);
+  background: linear-gradient(90deg, #4ba3e8, #ffffff 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -64,86 +66,86 @@ html.light .brand-text h1 {
 html.light .brand-text p { color: rgba(255,255,255,0.6); }
 html.light .nav-tab { color: rgba(255,255,255,0.5); }
 html.light .nav-tab:hover { color: rgba(255,255,255,0.9); }
-html.light .nav-tab.active { color: #e8a13a; border-bottom-color: #e8a13a; }
+html.light .nav-tab.active { color: #4ba3e8; border-bottom-color: #4ba3e8; }
 html.light .live-badge { background: rgba(200,54,59,0.25); border-color: rgba(200,54,59,0.5); color: #f6989b; }
 html.light .btn { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.88); }
 html.light .btn:hover { background: rgba(255,255,255,0.24); color: #fff; border-color: rgba(255,255,255,0.5); }
-html.light .btn-gold { background: linear-gradient(135deg,#ee4046,#c8363b); color: #fff; border-color: #ee4046; }
+html.light .btn-gold { background: #096ad0; color: #fff; border-color: #096ad0; }
 html.light .btn-gold:hover { filter: brightness(1.08); color: #fff; }
 /* Update bar */
-html.light .update-bar { background: #eeeef2; border-bottom-color: #dcdce4; }
+html.light .update-bar { background: #f0f6fc; border-bottom-color: #dfe6ee; }
 html.light .update-text { color: #3a3a48; }
-html.light .update-text strong { color: #262260; }
+html.light .update-text strong { color: #1f2c3d; }
 /* Pills */
 html.light .pill-green { background: rgba(31,157,99,0.12); color: #1f9d63; border-color: rgba(31,157,99,0.25); }
-html.light .pill-gold  { background: rgba(162,44,48,0.12);  color: #a22c30; border-color: rgba(162,44,48,0.25); }
-html.light .pill-grey  { background: #dcdce4; color: #3a3a48; border-color: #dcdce4; }
+html.light .pill-gold  { background: rgba(9,106,208,0.12);  color: #096ad0; border-color: rgba(9,106,208,0.25); }
+html.light .pill-grey  { background: #dfe6ee; color: #3a3a48; border-color: #dfe6ee; }
 /* Cards & surfaces */
-html.light .stat-card  { background: #fff; border-color: #dcdce4; }
-html.light .stat-val   { color: #a22c30; }
+html.light .stat-card  { background: #fff; border-color: #dfe6ee; }
+html.light .stat-val   { color: #096ad0; }
 html.light .stat-lbl   { color: #6e6e84; }
-html.light .group-card { background: #fff; border-color: #dcdce4; }
-html.light .group-header { background: linear-gradient(90deg,#eeeef2,#fff); border-bottom-color: #dcdce4; }
-html.light .group-name { color: #a22c30; }
-html.light .section-card { background: #fff; border-color: #dcdce4; }
-html.light .scorer-card  { background: #fff; border-color: #dcdce4; }
+html.light .group-card { background: #fff; border-color: #dfe6ee; }
+html.light .group-header { background: linear-gradient(90deg,#f0f6fc,#fff); border-bottom-color: #dfe6ee; }
+html.light .group-name { color: #096ad0; }
+html.light .section-card { background: #fff; border-color: #dfe6ee; }
+html.light .scorer-card  { background: #fff; border-color: #dfe6ee; }
 /* Standings table */
-html.light .standings-table th { color: #6e6e84; border-bottom-color: #dcdce4; }
-html.light .standings-table td { color: #3a3a48; border-bottom-color: #eeeef2; }
-html.light .standings-table tr.qualified td { color: #262260; font-weight: 500; }
+html.light .standings-table th { color: #6e6e84; border-bottom-color: #dfe6ee; }
+html.light .standings-table td { color: #3a3a48; border-bottom-color: #f0f6fc; }
+html.light .standings-table tr.qualified td { color: #1f2c3d; font-weight: 500; }
 html.light .standings-table tr.qualified-3rd td { color: #3a3a48; }
-html.light td.pts { color: #262260 !important; }
+html.light td.pts { color: #1f2c3d !important; }
 html.light td.gd-pos { color: #1f9d63 !important; }
 html.light td.gd-neg { color: #c8363b !important; }
 /* Fixtures */
-html.light .fixture-row:hover { background: #eeeef2; }
+html.light .fixture-row:hover { background: #f0f6fc; }
 html.light .fixture-row.live-match { background: rgba(200,54,59,0.05); }
 html.light .score-sep { color: #6e6e84; }
 html.light .match-status.ns { color: #6e6e84; }
 html.light .match-status.ft { color: #1f9d63; }
 html.light .match-status.live { color: #c8363b; }
-html.light .team-side { color: #262260; }
-html.light .score-box { color: #262260; }
+html.light .team-side { color: #1f2c3d; }
+html.light .score-box { color: #1f2c3d; }
 /* Modal */
-html.light .modal { background: #fff; border-color: #dcdce4; }
+html.light .modal { background: #fff; border-color: #dfe6ee; }
 html.light .modal-overlay { background: rgba(0,0,0,0.5); }
-html.light .modal-title { color: #a22c30; }
-html.light .modal-header { border-bottom-color: #dcdce4; }
+html.light .modal-title { color: #096ad0; }
+html.light .modal-header { border-bottom-color: #dfe6ee; }
 html.light .modal-close { color: #6e6e84; }
-html.light .modal-close:hover { background: #eeeef2; }
-html.light .modal-score-display { background: #eeeef2; }
-html.light .modal-team-name { color: #262260; }
-html.light .modal-score { color: #a22c30; }
-html.light .modal-tabs { border-bottom-color: #dcdce4; }
+html.light .modal-close:hover { background: #f0f6fc; }
+html.light .modal-score-display { background: #f0f6fc; }
+html.light .modal-team-name { color: #1f2c3d; }
+html.light .modal-score { color: #096ad0; }
+html.light .modal-tabs { border-bottom-color: #dfe6ee; }
 html.light .modal-tab { color: #6e6e84; }
-html.light .modal-tab.active { color: #a22c30; border-bottom-color: #a22c30; }
+html.light .modal-tab.active { color: #096ad0; border-bottom-color: #096ad0; }
 html.light .auto-fetch-note { background: rgba(238,64,70,0.07); border-color: rgba(238,64,70,0.2); color: #c8363b; }
 html.light .modal-save-btn { color: #fff; }
 /* Inputs */
-html.light .score-input { background: #eeeef2; color: #262260; border-color: #dcdce4; }
-html.light .score-input:focus { border-color: #c8363b; }
+html.light .score-input { background: #f0f6fc; color: #1f2c3d; border-color: #dfe6ee; }
+html.light .score-input:focus { border-color: #096ad0; }
 html.light .input-group input,
 html.light .input-group textarea,
-html.light .input-group select { background: #f7f7f9; color: #262260; border-color: #dcdce4; }
+html.light .input-group select { background: #ffffff; color: #1f2c3d; border-color: #dfe6ee; }
 html.light .input-group label { color: #6e6e84; }
 html.light .input-group input:focus,
 html.light .input-group textarea:focus,
-html.light .input-group select:focus { border-color: #c8363b; }
+html.light .input-group select:focus { border-color: #096ad0; }
 /* Toast */
-html.light .toast { background: #fff; color: #262260; border-color: #dcdce4; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+html.light .toast { background: #fff; color: #1f2c3d; border-color: #dfe6ee; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
 /* Path to final */
-html.light .path-group-box { background: #fff; border-color: #dcdce4; }
-html.light .path-connector { background: #dcdce4; }
-html.light .path-stage-node { background: #fff; border-color: #dcdce4; }
-html.light .path-stage-node.active-stage { border-color: #a22c30; background: rgba(162,44,48,0.06); }
-html.light .path-team-row { border-bottom-color: #eeeef2; }
-html.light .path-stage-label { color: #a22c30; }
+html.light .path-group-box { background: #fff; border-color: #dfe6ee; }
+html.light .path-connector { background: #dfe6ee; }
+html.light .path-stage-node { background: #fff; border-color: #dfe6ee; }
+html.light .path-stage-node.active-stage { border-color: #096ad0; background: rgba(9,106,208,0.06); }
+html.light .path-team-row { border-bottom-color: #f0f6fc; }
+html.light .path-stage-label { color: #096ad0; }
 /* Section headings */
 html.light .section-card h3 { color: #3a3a48; }
 /* Pos numbers */
 html.light .pos-num.q1 { color: #1f9d63; }
-html.light .pos-num.q2 { color: #262260; }
-html.light .pos-num.q3 { color: #a22c30; }
+html.light .pos-num.q2 { color: #1f2c3d; }
+html.light .pos-num.q3 { color: #096ad0; }
 html, body { transition: background 0.25s, color 0.25s; }
 
 /* ── PATH TO FINAL (shared both themes) ── */
@@ -213,10 +215,10 @@ html, body { transition: background 0.25s, color 0.25s; }
   transition: border-color 0.15s, background 0.15s;
 }
 .path-stage-node:hover { border-color: var(--accent); }
-.path-stage-node.active-stage { border-color: var(--gold); background: rgba(232,161,58,0.06); }
+.path-stage-node.active-stage { border-color: var(--gold); background: rgba(75,163,232,0.06); }
 .path-stage-node.final-node {
   border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(232,161,58,0.15), rgba(232,161,58,0.05));
+  background: linear-gradient(135deg, rgba(75,163,232,0.15), rgba(75,163,232,0.05));
   min-height: 70px;
   justify-content: center;
   align-items: center;
@@ -249,7 +251,7 @@ html, body { transition: background 0.25s, color 0.25s; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -258,7 +260,7 @@ body {
 
 /* ── HEADER ── */
 .site-header {
-  background: linear-gradient(135deg, #0e0d24 0%, #141232 60%, #5a181b 100%);
+  background: #1f2c3d;
   border-bottom: 1px solid var(--border);
   padding: 1.25rem 1.5rem 0;
   position: sticky;
@@ -281,13 +283,13 @@ body {
 .trophy-icon {
   font-size: 2rem;
   line-height: 1;
-  filter: drop-shadow(0 0 12px rgba(232,161,58,0.5));
+  filter: drop-shadow(0 0 12px rgba(75,163,232,0.5));
 }
 .brand-text h1 {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #e8a13a, #ffffff 60%);
+  background: linear-gradient(90deg, #4ba3e8, #ffffff 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -308,7 +310,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: 40px;
   background: var(--surface2);
   color: var(--text2);
   cursor: pointer;
@@ -321,9 +323,9 @@ body {
 }
 .btn:hover { background: var(--surface3); color: var(--text); border-color: var(--accent); }
 .btn-gold {
-  background: linear-gradient(135deg,#ee4046,#c8363b);
+  background: #096ad0;
   color: #fff;
-  border-color: #ee4046;
+  border-color: #096ad0;
   font-weight: 600;
 }
 .btn-gold:hover { filter: brightness(1.1); color: #fff; }
@@ -357,8 +359,10 @@ body {
 .nav-tabs::-webkit-scrollbar { display: none; }
 .nav-tab {
   padding: 8px 16px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text3);
   cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -681,7 +685,7 @@ html.light .modal-header { background: #fff; }
 .inline-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .modal-save-btn {
   padding: 8px 20px;
-  background: linear-gradient(135deg, var(--accent), #f26a6f);
+  background: linear-gradient(135deg, var(--accent), #6db4ec);
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
@@ -842,7 +846,7 @@ html.light .modal-header { background: #fff; }
   box-sizing: border-box;
   transition: box-shadow .2s;
 }
-.btree-card-final:hover { box-shadow: 0 0 0 2px var(--gold), 0 4px 24px rgba(232,161,58,.18); }
+.btree-card-final:hover { box-shadow: 0 0 0 2px var(--gold), 0 4px 24px rgba(75,163,232,.18); }
 .btree-final-lbl {
   font-size: 11px;
   font-weight: 700;
@@ -872,8 +876,8 @@ html.light .modal-header { background: #fff; }
   margin-top: 6px;
   text-align: center;
 }
-html.light .btree-card { background: #fff; border-color: #dcdce4; }
-html.light .btree-card:hover { border-color: #c8363b; }
+html.light .btree-card { background: #fff; border-color: #dfe6ee; }
+html.light .btree-card:hover { border-color: #096ad0; }
 html.light .btree-card.played { border-left-color: #1f9d63; }
 
 /* ── TOPSCORER & STATS VIEW ── */
@@ -995,7 +999,7 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
   font-weight: 600;
 }
 .pill-green { background: rgba(31,157,99,0.15); color: var(--green); border: 1px solid rgba(31,157,99,0.2); }
-.pill-gold { background: rgba(232,161,58,0.15); color: var(--gold); border: 1px solid rgba(232,161,58,0.2); }
+.pill-gold { background: rgba(75,163,232,0.15); color: var(--gold); border: 1px solid rgba(75,163,232,0.2); }
 .pill-red { background: rgba(238,64,70,0.15); color: var(--red); border: 1px solid rgba(238,64,70,0.2); }
 .pill-grey { background: var(--surface3); color: var(--text3); border: 1px solid var(--border); }
 
@@ -1011,7 +1015,7 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
   position: absolute;
   inset: 0 auto 0 0;
   width: 0%;
-  background: linear-gradient(90deg, rgba(232,161,58,0.25), rgba(232,161,58,0.55));
+  background: linear-gradient(90deg, rgba(75,163,232,0.25), rgba(75,163,232,0.55));
   transition: width 0.6s ease;
 }
 .progress-text {
@@ -1084,7 +1088,7 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
 }
 
 /* ── SCORE-CHANGE FLASH ── */
-@keyframes scoreflash { 0% { background: rgba(232,161,58,0.4); } 100% { background: transparent; } }
+@keyframes scoreflash { 0% { background: rgba(75,163,232,0.4); } 100% { background: transparent; } }
 .score-flash { animation: scoreflash 2.5s ease-out; }
 
 /* ── BRACKET WINNER HIGHLIGHT ── */
@@ -1142,7 +1146,7 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
 }
 .pred-team:hover:not(:disabled) { border-color: var(--accent); color: var(--text); }
 .pred-team:disabled { cursor: default; opacity: 0.55; font-style: italic; }
-.pred-team.picked { border-color: var(--gold); background: rgba(232,161,58,0.10); color: var(--text); font-weight: 600; }
+.pred-team.picked { border-color: var(--gold); background: rgba(75,163,232,0.10); color: var(--text); font-weight: 600; }
 .pred-team.picked.correct { border-color: var(--green); background: var(--win-bg); }
 .pred-team.picked.wrong { border-color: var(--red); background: var(--loss-bg); }
 .pred-score-banner {
@@ -1199,8 +1203,8 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
   z-index: 2;
 }
 @keyframes champpop { 0% { transform: scale(0.3); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-.champ-name { font-size: 2.2rem; font-weight: 800; color: #e8a13a; margin-top: 8px; }
-.champ-sub { font-size: 14px; color: #dcdce6; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 6px; }
+.champ-name { font-size: 2.2rem; font-weight: 800; color: #4ba3e8; margin-top: 8px; }
+.champ-sub { font-size: 14px; color: #ffffff; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 6px; }
 .confetti {
   position: absolute;
   top: -12px;
@@ -1386,7 +1390,7 @@ html.light .btree-card.played { border-left-color: #1f9d63; }
         <div class="auto-fetch-note">
           💡 <strong>Auto-Update</strong> pulls live data from <strong>football-data.org</strong> via the local server. Launch the tracker with <code style="background:rgba(99,102,241,0.15);padding:1px 5px;border-radius:3px">./start.sh</code> (or run <code style="background:rgba(99,102,241,0.15);padding:1px 5px;border-radius:3px">python3 server.py</code>), then click below to fetch this match.
         </div>
-        <button class="modal-save-btn" style="background:linear-gradient(135deg,#ee4046,#c8363b);margin-bottom:8px" onclick="autoFetchMatch()">⚡ Fetch This Match from API</button>
+        <button class="modal-save-btn" style="background:#096ad0;margin-bottom:8px" onclick="autoFetchMatch()">⚡ Fetch This Match from API</button>
         <button class="modal-save-btn" onclick="saveModal()">💾 Save Match</button>
       </div>
 
@@ -1798,8 +1802,8 @@ function buildPathToFinal(){
   const FW      = 162;  // Final card column width (px)
 
   const isLight = document.documentElement.classList.contains('light');
-  const lineClr = isLight ? '#dcdce4' : '#262260';
-  const goldClr = isLight ? '#a22c30' : '#e8a13a';
+  const lineClr = isLight ? '#dfe6ee' : '#35495f';
+  const goldClr = isLight ? '#096ad0' : '#4ba3e8';
 
   // Helper: get any KO match by id
   const byId = id => {
@@ -3091,7 +3095,7 @@ function buildMyTeam(){
   const pos = st.findIndex(t=>t.name===team)+1;
 
   c.innerHTML = `
-    <div class="myteam-banner" style="background:linear-gradient(120deg, ${col}cc, #141232cc), linear-gradient(120deg, ${col}, #1a1741)">
+    <div class="myteam-banner" style="background:linear-gradient(120deg, ${col}cc, #1f2c3dcc), linear-gradient(120deg, ${col}, #263548)">
       <div class="big-flag">${flag(team)}</div>
       <div>
         <h2>${team}</h2>
@@ -3161,7 +3165,7 @@ function celebrateChampion(){
     <div class="champ-sub">World Champions 2026</div>
     <div style="font-size:11px;color:#a8bdd4;margin-top:14px">click anywhere to close</div>
   </div>`;
-  const colors = ['#ee4046','#e8a13a','#ffffff','#f26a6f','#1f9d63','#b5b4c9'];
+  const colors = ['#096ad0','#4ba3e8','#ffffff','#6db4ec','#1f9d63','#a9b6c5'];
   for(let i=0;i<100;i++){
     const p = document.createElement('div');
     p.className = 'confetti';
