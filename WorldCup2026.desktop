@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=World Cup 2026 Tracker
+Comment=FIFA World Cup 2026 live fixture tracker
+Exec=bash "/home/jude/Documents/Projects/World Cup Tracker/start.sh"
+Path=/home/jude/Documents/Projects/World Cup Tracker
+Icon=/home/jude/Documents/Projects/World Cup Tracker/icon.svg
+Terminal=true
+Categories=Sports;Game;
+StartupNotify=false
